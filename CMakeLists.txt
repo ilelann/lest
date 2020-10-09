@@ -4,6 +4,7 @@
 # file LICENSE.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 cmake_minimum_required(VERSION 3.17.3)
+cmake_policy(SET CMP0077 NEW)
 
 project(
     lest
