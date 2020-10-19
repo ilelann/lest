@@ -13,8 +13,13 @@ project(
 #   HOMEPAGE_URL "https://github.com/martinmoene/lest"
     LANGUAGES CXX )
 
-option( LEST_BUILD_TEST     "Build tests for lest" ON )
-option( LEST_BUILD_EXAMPLE  "Build examples" ON )
+set(LEST_STANDALONE_PROJECT OFF)
+if (CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
+  set(LEST_STANDALONE_PROJECT ON)
+endif ()
+
+option( LEST_BUILD_TEST     "Build tests for lest" ${LEST_STANDALONE_PROJECT} )
+option( LEST_BUILD_EXAMPLE  "Build examples" ${LEST_STANDALONE_PROJECT} )
 option( LEST_BUILD_CONTRIB  "Build contrib" OFF )
 option( LEST_EXTRA_WARNINGS "Compile with extra warnings" OFF )
 
